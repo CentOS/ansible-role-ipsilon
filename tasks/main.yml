@@ -120,6 +120,14 @@
     dest: /var/lib/ipsilon/idp/genkey.py
     mode: 0755
 
+- name: Ensuring ipsilons has a sessions directory
+  file:
+    path: /var/lib/ipsilon/idp/sessions
+    state: directory
+    owner: ipsilon
+    group: ipsilon
+    mode: '0700'
+
 - name: Cleaning-up old sessions files
   cron:
     name: ipsilon session clean-up
